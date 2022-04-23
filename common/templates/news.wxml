@@ -1,0 +1,14 @@
+<template name="news">
+  <view class="recommend">
+    <navigator class="recommend-list" open-type="navigate" url="/pages/newsdetail/newsdetail?id={{ id }}">
+      <view>
+        <image src="{{ pic }}" />
+      </view>
+      <view class="recommend-list-item">
+        <view class="recommend-list-item-title">{{ title }}</view>
+        <view class="recommend-list-item-desc">{{ desn }}</view>
+        <view class="recommend-list-item-date">2019-08-11</view>
+      </view>
+    </navigator>
+  </view>
+</template>

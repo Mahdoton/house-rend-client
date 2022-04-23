@@ -1,0 +1,147 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.0",
+	"appid": "wx15cdf5c6dedd9ce8",
+	"projectname": "wx_minapp_zfw",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "找房",
+					"pathName": "pages/find/find",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "资讯",
+					"pathName": "pages/news/news",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "房源详情",
+					"pathName": "pages/fang/fang",
+					"query": "id=9",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "资讯详情页",
+					"pathName": "pages/newsdetail/newsdetail",
+					"query": "id=5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "成为房东",
+					"pathName": "pages/landlord/landlord",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "看房记录",
+					"pathName": "pages/history/history",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "看房通知",
+					"pathName": "pages/fangmsg/fangmsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑个人中心",
+					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑个人中心2",
+					"pathName": "pages/editpersonal/editpersonal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人身份认证",
+					"pathName": "pages/idcard/idcard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "房源属性快搜",
+					"pathName": "pages/searchlist/searchlist",
+					"query": "page=1&fieldname=fang_direction&fieldvalue=8",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

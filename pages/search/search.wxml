@@ -1,0 +1,9 @@
+<view>
+  <form bindsubmit="dosearch">
+    <view class="searchBox">
+      <input type="text" name="kw" placeholder="输入想要的房源" />
+      <button type="primary" form-type="submit">搜索</button>
+    </view>
+  </form>
+</view>
+<view></view>

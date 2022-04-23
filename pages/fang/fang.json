@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "wu-fav": "/components/fav/fav"
+  }
+}

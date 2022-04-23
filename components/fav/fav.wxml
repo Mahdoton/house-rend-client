@@ -1,0 +1,1 @@
+<text class="fav_tag3" bind:tap="addFav">添加收藏-- {{ fang }}</text>

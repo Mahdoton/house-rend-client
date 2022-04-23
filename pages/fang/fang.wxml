@@ -1,0 +1,114 @@
+<!-- 幻灯片 -->
+<swiper class="swiper-img" autoplay="true" circular="{{true}}" indicator-dots="{{true}}">
+  <block wx:for="{{info.piclist}}" wx:key="piclist">
+    <swiper-item>
+      <image src="{{ item }}" />
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 标题 -->
+<view class="padding20">
+  <view class="tagtitle">{{ info.fang_name }}</view>
+  <!-- 收藏 自定义组件 -->
+  <wu-fav fang="{{ info.id }}" bind:addFav="addFavFun" />
+  <view class="taglist">
+    <view>
+      <text class="tag1">押一付三</text>
+      <text class="tag2">免押金</text>
+      <text class="tag3">精装</text>
+    </view>
+    <view class="tagdate">2019-08-11</view>
+  </view>
+</view>
+<view class="padding20 options">
+  <view class="options-item">
+    <view class="options-red">{{ info.fang_rent }}/月</view>
+    <view>租金(付3押1)</view>
+  </view>
+  <view class="options-item">
+    <view class="options-red">{{ info.shi_ting }}</view>
+    <view>房型</view>
+  </view>
+  <view class="options-item">
+    <view class="options-red">{{ info.fang_build_area }}平米</view>
+    <view>面积</view>
+  </view>
+</view>
+<!-- 房屋选项 -->
+<view class="padding20 fang-opt">
+  <view class="fang-opt-item">
+    <text>装修：</text>
+    <text>精装修</text>
+  </view>
+  <view class="fang-opt-item">
+    <text>朝向：</text>
+    <text>{{ info.direction }}</text>
+  </view>
+  <view class="fang-opt-item">
+    <text>楼层：</text>
+    <text>底层(共{{ info.fang_floor }}层)</text>
+  </view>
+  <view class="fang-opt-item">
+    <text>类型：</text>
+    <text>普通住宅</text>
+  </view>
+  <view class="fang-opt-item">
+    <text>年代：</text>
+    <text>{{ info.fang_year }}年</text>
+  </view>
+</view>
+<!-- 地图 -->
+<view class="map-box">
+  <map id="map" latitude="{{ info.latitude }}" longitude="{{ info.longitude }}" scale="14" markers="{{markers}}"></map>
+</view>
+<!-- 房屋配套 -->
+<view class="fangwoptao-title">房屋配套</view>
+<view class="fangwoptao">
+  <block wx:for="{{info.config}}" wx:key="config">
+    <view class="fangwoptao-item">
+      <view class="iconfont font36 icon-yigui-hui"></view>
+      <view>{{ item.name }}</view>
+    </view>
+  </block>
+</view>
+<!-- 房源概况 -->
+<view class="fangyuan">
+  <view class="fangyuan-title">房源概况</view>
+  <view>
+    <view class="fangyuan-img">
+      <view>
+        <image src="https://fang.1314000.cn/zfw/page-myIcon.png" />
+      </view>
+      <view class="fangyuan-label">
+        <view>{{ info.owner.name }}{{ info.ownerPhone }}</view>
+        <view class="red">已认证房主</view>
+      </view>
+      <view class="callphone" data-phone="{{ info.ownerPhone }}">打电话</view>
+    </view>
+    <view class="fangyuan-body">{{ info.fang_desn }}</view>
+  </view>
+</view>
+<!-- 底部功能菜单 -->
+<view class="footer-menu">
+  <block wx:if="{{ favBtn == 0 }}">
+    <view bind:tap="addFavFun">添加收藏</view>
+  </block>
+  <block wx:if="{{ favBtn == 1 }}">
+    <view bind:tap="delFavFun">取消收藏</view>
+  </block>
+  <view class="shareBox">
+    <text>分享好友</text>
+    <!-- 自定义分享，在界面中只能通过按钮来触发 -->
+    <button type="primary" open-type="share">分享好友</button>
+  </view>
+  <view class="shareBox">
+    <text>在线咨询</text>
+    <!-- 打开会话聊天功能，只能用按钮的开放能来触发 -->
+    <button type="primary" open-type="contact">在线咨询</button>
+  </view>
+
+  <view data-phone="{{ info.ownerPhone }}">
+    电话预约
+  </view>
+  
+</view>

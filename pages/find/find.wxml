@@ -1,0 +1,70 @@
+<import src="/common/templates/fang.wxml" />
+<!-- 搜索 -->
+<view class="searchBox">
+  <view class="searchBox-area">
+    <text>北京</text>
+    <text class="iconfont icon-xiangxia font10"></text>
+  </view>
+  <view class="searchBox-input">
+    <text class="iconfont icon-sousuo1"></text>
+    <navigator open-type="navigate" url="/pages/search/search">你想住在哪？</navigator>
+  </view>
+</view>
+<!-- 推荐房源 -->
+<view class="recommend">
+  <view class="nav">
+    <view class="recommend-search">
+      <view class="searchBox-area" data-index="{{0}}" bind:tap="onShadeDiv">
+        <text>区域</text>
+        <text class="iconfont font10 {{ arrows[0] }}"></text>
+      </view>
+      <view class="searchBox-area" data-index="{{1}}" bind:tap="onShadeDiv">
+        <text>方式</text>
+        <text class="iconfont font10 {{ arrows[1] }}"></text>
+      </view>
+      <view class="searchBox-area" data-index="{{2}}" bind:tap="onShadeDiv">
+        <text>小组</text>
+        <text class="iconfont font10 {{ arrows[2] }}"></text>
+      </view>
+      <view class="searchBox-area" data-index="{{3}}" bind:tap="onShadeDiv">
+        <text>筛选</text>
+        <text class="iconfont font10 {{ arrows[3] }}"></text>
+      </view>
+    </view>
+    <!-- 选择器 -->
+    <view class="shadediv {{show[0]}}">
+      <block wx:for="{{attrs.fang_direction}}" wx:key="">
+        <view>
+          <navigator url="/pages/searchlist/searchlist?attr=fang_direction&attr_id={{ item.id }}&name={{ item.name }}" hover-class="none" open-type="navigate">
+            {{ item.name }}
+          </navigator>
+        </view>
+      </block>
+    </view>
+    <view class="shadediv {{show[1]}}">
+      <block wx:for="{{attrs.fang_rent_class}}" wx:key="">
+        <navigator url="/pages/searchlist/searchlist?attr=fang_rent_class&attr_id={{ item.id }}&name={{ item.name }}" hover-class="none" open-type="navigate">
+          {{ item.name }}
+        </navigator>
+      </block>
+    </view>
+    <view class="shadediv {{show[2]}}">
+      <block wx:for="{{attrs.fang_group}}" wx:key="">
+        <navigator url="/pages/searchlist/searchlist?attr=fang_group&attr_id={{ item.id }}&name={{ item.name }}" hover-class="none" open-type="navigate">
+          {{ item.name }}
+        </navigator>
+      </block>
+    </view>
+    <view class="shadediv {{show[3]}}">筛选</view>
+  </view>
+  <scroll-view scroll-top="{{ top }}" scroll-with-animation="{{true}}" scroll-y="{{true}}" class="sview" bindscroll="fangscroll" bindscrolltolower="fangs">
+    <block wx:for="{{fangs}}" wx:key="fangs">
+      <!-- 数据展开 -->
+      <template is="fang" data="{{ ...item }}" />
+    </block>
+  </scroll-view>
+</view>
+<!-- 回到顶部 -->
+<view class="gototop {{ to_show }}" bind:tap="gototop">
+  <text class="iconfont font30 icon-fanhuidingbu"></text>
+</view>

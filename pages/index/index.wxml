@@ -1,0 +1,93 @@
+<import src="/common/templates/fang.wxml" />
+<!-- 搜索 -->
+<view class="searchBox">
+  <view class="searchBox-area">
+    <text>北京</text>
+    <text class="iconfont icon-xiangxia font10"></text>
+  </view>
+  <view class="searchBox-input">
+    <text class="iconfont icon-sousuo1"></text>
+    <navigator open-type="navigate" url="">你想住在哪？</navigator>
+  </view>
+</view>
+<!-- 幻灯片 -->
+<swiper class="swiper-img" autoplay="true" circular="{{true}}" indicator-dots="{{true}}">
+  <block wx:for="{{recommend}}" wx:key="recommend">
+    <swiper-item>
+      <navigator open-type="navigate" url="/pages/fang/fang?id={{ item.id }}" hover-class="none">
+        <image src="{{ item.pic }}" />
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 图标导航 -->
+<view class="icon-nav">
+  <navigator hover-class="none" open-type="navigate" url="">
+    <image src="http://www.gjp.com/aa.png" />
+    <text>整租</text>
+  </navigator>
+  <navigator hover-class="none" open-type="navigate" url="">
+    <image src="https://fang.1314000.cn/zfw/asset-nav-2.png" />
+    <text>合租</text>
+  </navigator>
+  <navigator hover-class="none" open-type="navigate" url="">
+    <image src="https://fang.1314000.cn/zfw/asset-nav-3.png" />
+    <text>直租</text>
+  </navigator>
+  <navigator hover-class="none" open-type="navigate" url="">
+    <image src="https://fang.1314000.cn/zfw/asset-nav-4.png" />
+    <text>短租</text>
+  </navigator>
+</view>
+<!-- 租房小组 -->
+<view class="renting-group">
+  <view class="renting-group-nav">
+    <view class="renting-group-nav-title">租房小组</view>
+    <view class="renting-group-nav-more">更多</view>
+  </view>
+  <view class="renting-group-itme">
+    <block wx:for="{{fang_group}}" wx:key="fang_group">
+      <navigator open-type="navigate" url="">
+        <image src="{{ item.icon }}" />
+      </navigator>
+    </block>
+  </view>
+</view>
+<!-- 推荐房源 -->
+<view class="recommend">
+  <view class="nav">
+    <view class="recommend-search">
+      <view class="searchBox-area" data-index="{{0}}" bind:tap="onShadeDiv">
+        <text>区域</text>
+        <text class="iconfont font10 {{ arrows[0] }}"></text>
+      </view>
+      <view class="searchBox-area" data-index="{{1}}" bind:tap="onShadeDiv">
+        <text>方式</text>
+        <text class="iconfont font10 {{ arrows[1] }}"></text>
+      </view>
+      <view class="searchBox-area" data-index="{{2}}" bind:tap="onShadeDiv">
+        <text>租金</text>
+        <text class="iconfont font10 {{ arrows[2] }}"></text>
+      </view>
+      <view class="searchBox-area" data-index="{{3}}" bind:tap="onShadeDiv">
+        <text>筛选</text>
+        <text class="iconfont font10 {{ arrows[3] }}"></text>
+      </view>
+    </view>
+    <!-- 选择器 -->
+    <view class="shadediv {{show[0]}}">你好世界1</view>
+    <view class="shadediv {{show[1]}}">你好世界2</view>
+    <view class="shadediv {{show[2]}}">你好世界3</view>
+    <view class="shadediv {{show[3]}}">你好世界4</view>
+  </view>
+  <scroll-view scroll-top="{{ top }}" scroll-with-animation="{{true}}" scroll-y="{{true}}" class="sview" bindscroll="fangscroll" bindscrolltolower="fangs">
+    <block wx:for="{{fangs}}" wx:key="fangs">
+      <!-- 数据展开 -->
+      <template is="fang" data="{{ ...item }}" />
+    </block>
+  </scroll-view>
+</view>
+<!-- 回到顶部 -->
+<view class="gototop {{ to_show }}" bind:tap="gototop">
+  <text class="iconfont font30 icon-fanhuidingbu"></text>
+</view>

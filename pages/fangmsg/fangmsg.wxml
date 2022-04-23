@@ -1,0 +1,16 @@
+<scroll-view class="sview" scroll-y="{{true}}">
+  <block wx:for="{{datalist}}" wx:key="">
+    <view class="items">
+      <view class="item">
+        <view>{{ item.owner.name }}</view>
+        <view>{{ item.dtime }}</view>
+        <view>{{ item.cnt }}</view>
+      </view>
+      <!-- 拨打电话 -->
+      <view class="calltel" data-phone="{{ item.owner.phone }}" bind:tap="callphone">
+        <text class="iconfont icon-dianhua"></text>
+        联系看房
+      </view>
+    </view>
+  </block>
+</scroll-view>
